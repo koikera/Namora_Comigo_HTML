@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="generator" content="HEX by Intrepid">
+    <title>Document</title>
+    <style type="text/css">
+        body{
+            width: 100%;
+            margin: 0;
+            height: 100%;
+            background: rgb(223, 59, 59);
+            color: white;
+            justify-content: center;
+            display: grid;
+            text-align: center;
+        }
+
+        button{
+            width: 130px;
+            height: 40px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .botao{
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        img{
+            display: none;
+        }
+    </style>
+</head>
+<body onresize="resizeButton()">
+    <h1>
+        <strong>Quer namorar comigo?</strong>
+    </h1>
+    <div class="botao">
+        <button onclick="showVideo()">Sim</button>
+        <button id="botao" onmouseover="moveButton()" onclick="moveButton()" style="position: absolute; left: 51%;">Não</button>
+    </div>
+	
+	<h1 id="TeAmo" style="display: none;">
+        <strong>Te amo</strong>
+    </h1>
+    <img id="video" src="https://i.pinimg.com/originals/c0/68/60/c06860b058d7aadaa28874be0a723947.gif" alt="" style="display: none; margin-top: 20px;">
+
+    <script>
+        var contagem = 0;
+        function resizeButton(){
+            var altura = window.innerHeight - 134;
+            var largura = window.innerWidth - 134;
+
+            console.log("resize")
+            document.getElementById("botao").style.left = `${Math.floor(Math.random() * largura)}px`
+            document.getElementById("botao").style.top = `${Math.floor(Math.random() * largura)}px`
+        }
+
+        function moveButton(){
+            var altura = window.innerHeight - 134;
+            var largura = window.innerWidth - 134;
+            document.getElementById("botao").style.left = `${Math.floor(Math.random() * largura)}px`;
+            document.getElementById("botao").style.top = `${Math.floor(Math.random() * altura)}px`;
+        }
+
+        function showVideo(){
+            document.getElementById("video").style.display = 'block';
+			document.getElementById("TeAmo").style.display = 'block';
+            document.getElementById("botao").style.display = 'none';
+        }
+
+        // function alerta(){
+        //     if(contagem == 5){
+        //         window.alert("Aceita aí po, trato vc igual princesa");
+        //     }
+        // }
+    </script>
+</body>
+</html>
